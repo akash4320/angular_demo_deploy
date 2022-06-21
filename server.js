@@ -1,8 +1,12 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-app.use(express.static(__dirname + '/dist/<app-name>'));
-app.get('/*', function(req,res) {
-res.sendFile(path.join(__dirname+
-'/dist/<app-name>/index.html'));});
-// app.listen(process.env.PORT || 8080);
+let express = require('express');
+
+let app = express();
+
+app.use(express.static(__dirname + '/dist/demo-deploy'));
+
+app.get('/*', function(req,resp) {
+    resp.sendFile(__dirname+
+    '/dist/demo-deploy/index.html');
+});
+
+app.listen(process.env.PORT || 8080);
